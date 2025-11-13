@@ -542,6 +542,7 @@ select:disabled {
 [type=reset],
 [type=submit],
 button {
+  appearance: button;
   -webkit-appearance: button
 }
 
@@ -596,6 +597,7 @@ legend+* {
 }
 
 [type=search] {
+  appearance: textfield;
   -webkit-appearance: textfield;
   outline-offset: -2px
 }
@@ -614,6 +616,7 @@ legend+* {
 }
 
 ::file-selector-button {
+  appearance: button;
   -webkit-appearance: button;
   font: inherit
 }
@@ -2859,7 +2862,7 @@ textarea.form-control-lg {
   -webkit-print-color-adjust: exact;
   vertical-align: top;
   width: 1em;
-  color-adjust: exact;
+  /* color-adjust: exact; */
   print-color-adjust: exact
 }
 
@@ -30864,7 +30867,7 @@ table.dataTable.table-sm tbody td.select-checkbox:before {
   -moz-user-select: none;
   user-select: none;
   width: 1em;
-  speak: none;
+  /* speak: none; */
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
@@ -30918,6 +30921,7 @@ table.dataTable.table-sm tbody td.select-checkbox:before {
 }
 
 .fc .fc-button {
+  appearance: button;
   -webkit-appearance: button
 }
 
@@ -32655,7 +32659,7 @@ text {
   border: none;
   cursor: pointer;
   display: inline-block;
-  float: left;
+  /* float: left; */
   height: 24px;
   padding: 3px 5px;
   width: 28px
@@ -32859,7 +32863,7 @@ text {
 .ql-bubble .ql-picker {
   color: #ccc;
   display: inline-block;
-  float: left;
+  /* float: left; */
   font-size: 14px;
   font-weight: 500;
   height: 24px;
@@ -33744,7 +33748,7 @@ text {
   border: none;
   cursor: pointer;
   display: inline-block;
-  float: left;
+  /* float: left; */
   height: 24px;
   padding: 3px 5px;
   width: 28px
@@ -34027,7 +34031,7 @@ text {
 .ql-snow .ql-picker {
   color: #444;
   display: inline-block;
-  float: left;
+  /* float: left; */
   font-size: 14px;
   font-weight: 500;
   height: 24px;
@@ -34710,6 +34714,7 @@ text {
 }
 
 .select2-container--default .select2-search--inline .select2-search__field {
+  appearance: textfield;
   -webkit-appearance: textfield;
   background: transparent;
   border: none;
@@ -40778,8 +40783,12 @@ a.color-gray:hover {
 .thanks-badges {
   padding: 16px;
   background: #F5F5FB;
+  border-radius: 16px;
 }
 
+.thanks-badge-col {
+  margin-bottom: 16px;
+}
 
 .thanks-badges .badges-card {
   height: 188px;
@@ -40837,15 +40846,24 @@ a.color-gray:hover {
   background: #fff;
   border-radius: 16px;
   transition: all 0.2s ease;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .thanks-badge img {
   max-height: 124px;
   object-fit: contain;
+  margin: 0 auto auto;
 }
 
 .thanks-badge .btn {
   margin: 8px auto 0;
+}
+
+.thanks-search .input-group-navbar {
+  min-width: auto;
 }
 
 @media screen and (max-width: 1200px) {
