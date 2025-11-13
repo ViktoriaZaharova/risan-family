@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<!--
+  HOW TO USE: 
+  data-layout: fluid (default), boxed
+  data-sidebar-theme: dark (default), colored, light
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+<html lang="ru" data-bs-theme="dark" data-layout="fluid" data-sidebar-theme="dark" data-sidebar-position="left"
+	data-sidebar-behavior="sticky">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
+	<meta name="author" content="Bootlab">
+
+	<title>Опросы</title>
+
+	<link rel="canonical" href="dashboard-default.html" />
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<link href="css/app.css" rel="stylesheet">
+	<link href="css/fancybox.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class='sidebar-brand' href='index.html'>
+					<svg width="132" height="41" viewBox="0 0 132 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clip-path="url(#clip0_21167_3364)">
+							<path
+								d="M126.996 36.4462H131.74V16.3003H126.996V23.9925H112.759V16.2908H108.014V36.4367H112.759V28.735H126.996V36.4462Z"
+								fill="white" />
+							<path
+								d="M46.9462 16.3578L32.7108 29.9278V16.2928H27.958V36.4458H32.6458L32.7108 36.3943L46.9462 22.7712V36.4458H51.6863V16.2928H47.0382L46.9462 16.3578Z"
+								fill="white" />
+							<mask id="mask0_21167_3364" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-171"
+								y="-313" width="473" height="668">
+								<path d="M-170.054 -312.551H301.877V354.454H-170.054V-312.551Z" fill="white" />
+							</mask>
+							<g mask="url(#mask0_21167_3364)">
+								<path
+									d="M13.6852 31.7018H4.79955V21.0331H13.6852C16.6328 21.0331 19.023 23.4218 19.023 26.3683C19.023 29.3131 16.6328 31.7018 13.6852 31.7018ZM0.0546875 16.2874V41.1885H4.79955V36.4642V36.4475H13.8501C19.421 36.4475 23.9368 31.9348 23.9368 26.3683C23.9368 20.8002 19.421 16.2874 13.8501 16.2874H0.0546875Z"
+									fill="white" />
+								<path
+									d="M55.6689 26.3679C55.6689 31.9344 60.1847 36.448 65.7556 36.448H78.3547V31.7015H65.9205C62.9722 31.7015 60.5827 29.3136 60.5827 26.3679C60.5827 23.4215 62.9722 21.0336 65.9205 21.0336H78.3547V16.2871H65.7556C60.1847 16.2871 55.6689 20.8007 55.6689 26.3679Z"
+									fill="white" />
+								<path
+									d="M103.925 17.6378C102.763 16.4756 101.218 15.8362 99.5753 15.8362C97.9311 15.8362 96.3859 16.4756 95.2237 17.6378L93.2576 19.6034L91.2898 17.6378C90.1276 16.4756 88.5817 15.8362 86.939 15.8362C85.2955 15.8362 83.7504 16.4756 82.5882 17.6378C81.4259 18.7993 80.7861 20.3426 80.7861 21.9858C80.7861 23.6282 81.4259 25.1723 82.5882 26.333L86.939 30.681L93.2568 36.9954L99.5745 30.681L103.925 26.3338C105.088 25.1723 105.727 23.6282 105.727 21.9858C105.727 20.3426 105.088 18.7985 103.925 17.6378Z"
+									fill="#EF3120" />
+								<path
+									d="M78.7547 4.91587C79.4437 3.63081 81.3622 2.20076 81.5811 2.3093L81.5882 2.33069C81.6183 2.39011 81.6207 2.60798 80.9944 3.33925C80.5576 3.87879 80.1937 4.25195 79.9416 4.41991L79.9305 4.42862C79.6054 4.73602 79.1464 5.06006 78.7547 4.91587ZM102.768 6.02346C102.768 6.16528 102.646 6.5115 101.833 7.25227C101.202 7.82905 100.754 8.10872 100.462 8.10872C100.144 8.10872 100.078 7.7213 100.078 7.39567C100.078 6.7785 100.152 6.32928 100.295 6.09318C100.997 5.88085 101.635 5.77707 102.246 5.77707C102.768 5.77707 102.768 5.95691 102.768 6.02346ZM102.301 4.02219C101.853 4.02219 101.459 4.02219 101.107 4.00238C101.24 3.70924 101.42 3.31469 101.685 2.85517C101.988 2.33544 102.13 1.97021 102.162 1.81175C102.273 1.04008 101.653 0.363482 101.026 0.238303C100.791 0.201067 100.403 0.401511 99.537 2.39566C98.7894 3.94138 98.3787 5.36112 98.3082 6.62559C96.897 7.96928 95.9274 8.67836 94.9531 8.57616C94.3109 8.52466 94.012 8.13249 94.012 7.34101C94.012 6.67392 94.2499 5.76122 94.7176 4.63382L95.2369 3.59515C95.5088 3.10711 95.7316 2.66186 95.8997 2.27127C96.0709 1.87355 96.1526 1.56615 96.1526 1.33401C96.1526 0.990168 95.9869 0.665337 95.6595 0.368236C95.34 0.0766802 95.0609 -0.0176001 94.7771 0.0782652C94.2752 0.28584 93.7425 1.2532 93.1939 2.955C93.0488 3.40739 92.696 4.20837 91.8303 5.45778C91.2309 6.36968 90.3232 7.31407 89.8404 7.31407C89.5732 7.31407 89.4249 7.10887 89.4012 6.70244C89.375 6.4093 89.4305 6.00207 89.5637 5.52196L89.7357 4.8105C89.876 4.22739 89.9688 3.84313 90.0283 3.66487C90.4857 2.35367 90.6633 1.73807 90.6633 1.47108C90.6633 1.29202 90.4952 1.02107 90.2027 0.729511C89.8681 0.365067 89.6438 0.208989 89.4567 0.208989C89.1094 0.208989 88.8414 0.505299 88.6377 1.11614C88.1945 2.4939 87.6665 3.81937 87.022 5.16702C86.3196 6.66837 85.8685 6.98449 85.6132 6.98449C85.5165 6.98449 85.4316 6.89971 85.3603 6.73413C85.1946 6.32056 84.9885 5.80559 84.3788 5.80559C83.6748 5.80559 83.1199 6.41722 83.0485 7.22375C81.8538 8.06356 80.6091 8.49376 79.3295 8.49376C78.7912 8.49376 78.4345 8.38522 78.2363 8.16259C77.8597 7.7617 77.8002 7.11283 78.0587 6.23262C78.5288 6.51309 79.0568 6.6549 79.63 6.6549C79.8036 6.6549 79.9186 6.6549 80.005 6.62559C81.5121 6.2865 82.442 4.98717 82.8099 3.88354C82.9589 3.43828 83.0334 2.9954 83.0334 2.56758C83.0334 2.3711 83.0334 2.20155 83.0049 2.08825C82.9185 1.59626 82.6807 1.24528 82.2795 1.01631C81.9981 0.846767 81.6794 0.75724 81.3599 0.75724C80.2745 0.75724 79.1416 1.376 77.8969 2.64839C76.6816 3.91998 76.091 5.23991 76.091 6.68263C76.091 6.71432 76.0925 6.74205 76.0925 6.77216C74.3048 7.91382 72.8928 8.49376 71.8907 8.49376C71.5554 8.49376 71.3065 8.39473 71.1336 8.19745C70.9822 7.99622 70.9029 7.73794 70.9029 7.45034C70.9029 6.71036 71.3215 5.76677 72.1492 4.6457C72.7922 3.77817 73.2171 3.28221 73.4407 3.13326C73.6301 3.02709 73.8236 2.9241 73.9219 2.9241C73.9512 2.9241 74.0527 2.97481 74.1343 3.016C74.2771 3.08731 74.4531 3.17604 74.6512 3.22516C74.7226 3.23546 74.7821 3.24576 74.8336 3.25448C74.924 3.26953 74.989 3.28062 75.0476 3.28062C75.4543 3.28062 75.6779 3.07622 75.6779 2.70464C75.6779 2.2166 75.4298 1.7349 74.9367 1.27142C74.5006 0.894303 74.0479 0.703366 73.5921 0.703366C73.0268 0.703366 72.3807 1.03295 71.6149 1.71272C70.4637 2.791 69.1191 4.76771 69.1191 6.79276C69.1191 7.76091 69.441 8.57378 70.076 9.20997C70.6207 9.75268 71.4159 10.0284 72.4394 10.0284C73.3392 10.0284 74.0939 9.83032 74.6814 9.43815C75.4345 8.92872 75.9927 8.48901 76.3304 8.14754C76.4826 8.48584 76.7228 8.79403 77.1089 9.1046C77.8724 9.72653 78.6881 10.0284 79.603 10.0284C80.8176 10.0284 82.3366 9.36526 83.3862 8.42483C83.4901 8.55397 83.6082 8.67598 83.7581 8.78136C84.2432 9.0943 84.7514 9.26068 85.2295 9.26068C86.4314 9.26068 87.4945 8.4177 88.1406 6.98053C88.1541 7.58978 88.3341 8.15071 88.675 8.64825C89.0468 9.19254 89.4828 9.45479 89.9839 9.42468C90.7568 9.37239 91.5837 8.58012 92.5081 7.00905C92.5596 8.73461 93.071 9.83824 94.0287 10.293C94.3458 10.4935 94.7208 10.6044 95.0831 10.6044C95.7823 10.6044 96.4301 10.2819 97.0667 9.6172L97.6454 8.95566C97.957 8.56586 98.1988 8.21171 98.3795 7.88609C98.5635 8.79166 99.0542 9.43577 99.851 9.8018L99.8541 9.80259C100.134 9.9143 100.419 9.97293 100.681 9.97293C101.543 9.97293 102.468 9.45716 103.429 8.44147C104.155 7.71575 104.524 7.0035 104.524 6.32532C104.524 5.7945 104.341 5.31517 103.986 4.90636C103.598 4.37792 103.032 4.08082 102.301 4.02219Z"
+									fill="white" />
+								<path
+									d="M111.934 2.21144C111.934 2.43883 111.868 2.73751 111.802 3.00134C111.517 3.43154 110.696 4.02178 109.985 4.02178C109.621 4.02178 109.436 3.89264 109.436 3.63753C109.436 3.28259 109.67 2.88963 110.149 2.43724C110.65 1.98961 111.098 1.77253 111.522 1.77253C111.811 1.77253 111.934 1.90404 111.934 2.21144ZM117.332 6.66401C117.266 6.62835 117.182 6.66004 117.096 6.71471C117.067 6.72422 117.013 6.75829 116.836 6.87396C116.444 7.12986 115.632 7.66147 114.836 8.0069C114.347 8.23904 113.888 8.35629 113.47 8.35629C113.214 8.35629 113.05 8.3254 112.931 8.25488C112.629 8.10356 112.565 7.79299 112.565 7.56006C112.565 7.03954 112.787 6.2235 113.244 5.06837C113.413 4.67065 113.673 4.22698 113.882 3.87046C114.075 3.54008 114.169 3.37767 114.184 3.29131C114.197 3.17485 114.173 3.07898 114.109 3.00688C114.029 2.91419 113.891 2.86982 113.69 2.86982C113.655 2.86982 113.437 2.89834 113.239 2.92686C113.597 2.4103 113.772 1.95079 113.772 1.52534C113.772 0.688701 113.117 0.264836 111.824 0.264836C110.671 0.264836 109.645 0.706923 108.775 1.57763C107.908 2.44279 107.488 3.23347 107.488 3.99405C107.488 4.92259 108.069 5.3932 109.216 5.3932C109.393 5.3932 109.586 5.37894 109.793 5.35121L108.833 6.26391L108.367 6.6751C107.831 7.12669 107.499 7.28673 107.103 7.28673C106.974 7.28673 106.752 7.17898 106.434 6.67114C106.178 6.18785 105.876 5.94225 105.539 5.94225C104.919 5.94225 104.605 6.37562 104.605 7.23127C104.605 7.34219 104.621 7.46341 104.643 7.6179L104.662 7.76526C104.862 8.99407 105.581 9.6168 106.801 9.6168C107.563 9.6168 108.399 9.15173 109.357 8.19309C110.088 7.44201 110.679 6.72659 111.121 6.05871C110.95 6.65608 110.863 7.17819 110.863 7.61552C110.863 8.37848 111.104 9.00516 111.558 9.42744C111.962 9.8014 112.529 10.0082 113.14 10.0082C113.206 10.0082 113.273 10.005 113.341 10.001C114.28 9.91786 115.266 9.36486 116.275 8.35788C117.032 7.57036 117.368 7.10451 117.396 6.79235C117.396 6.7163 117.362 6.68143 117.332 6.66401Z"
+									fill="white" />
+							</g>
+						</g>
+						<defs>
+							<clipPath id="clip0_21167_3364">
+								<rect width="132" height="41" fill="white" />
+							</clipPath>
+						</defs>
+					</svg>
+					<span class="align-middle">Внутрикорпоративная
+						платформа</span>
+				</a>
+
+				<ul class="sidebar-nav">
+
+					<li class="sidebar-item">
+						<a href="#" class="sidebar-link">
+							<i class="align-middle" data-lucide="sliders"></i><span class="align-middle">Дашборд</span>
+							<span class="badge badge-sidebar-primary">5</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="#" class="sidebar-link">
+							<i class="align-middle" data-lucide="book-open"></i> <span
+								class="align-middle">Адаптация</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href='calendar.html' class='sidebar-link'>
+							<i class="align-middle" data-lucide="calendar"></i> <span class="align-middle">Календарь
+								событий</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href='dashboard-news.html' class='sidebar-link'>
+							<i class="align-middle" data-lucide="files"></i> <span class="align-middle">Новости</span>
+							<span class="badge badge-sidebar-primary">New</span>
+						</a>
+					</li>
+					<li class="sidebar-item active">
+						<a href="dashboard-polls.html" class='sidebar-link'>
+							<i class="align-middle" data-lucide="check-square"></i> <span
+								class="align-middle">Опросы</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href='dashboard-suggestions.html' class='sidebar-link'>
+							<i class="align-middle" data-lucide="list"></i> <span
+								class="align-middle">Предложения</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="chat.htmkl" class='sidebar-link'>
+							<i class="align-middle" data-lucide="message-square-more"></i> <span
+								class="align-middle">Мессенджер</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="dashboard-employees.html" class='sidebar-link'>
+							<i class="align-middle" data-lucide="users"></i> <span class="align-middle">Сотрудники СГ
+								"Рисан"</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="dashboard-shop.html" class='sidebar-link'>
+							<i class="align-middle" data-lucide="shopping-bag"></i> <span
+								class="align-middle">Магазин</span>
+						</a>
+					</li>
+				</ul>
+
+				<div class="sidebar-cta">
+					<div class="sidebar-cta-content">
+						<strong class="d-inline-block">Полезные контакты</strong>
+
+						<div class="sidebar-cta__manager">
+							<div class="sidebar-cta__avatar"><img src="img/avatar.jpg" alt=""></div>
+							<div class="text-sm">
+								Администратор
+								платформы
+							</div>
+						</div>
+						<div class="d-grid">
+							<a href="https://bootlab.io/product/appstack-admin-template" class="btn btn-border"
+								target="_blank">Написать</a>
+						</div>
+
+						<div class="sidebar-cta__manager">
+							<div class="sidebar-cta__avatar"><img src="img/avatar2.jpg" alt=""></div>
+							<div class="text-sm">
+								Техническая
+								поддержка
+							</div>
+						</div>
+						<div class="d-grid">
+							<a href="https://bootlab.io/product/appstack-admin-template" class="btn btn-border"
+								target="_blank">Написать</a>
+						</div>
+					</div>
+				</div>
+
+				<a href="#" class="btn btn-border btn-download-statictics">
+					<span>Скачать статистику <br>
+						по вторнику кармы</span>
+					<i class="align-middle" data-lucide="download"></i>
+				</a>
+			</div>
+		</nav>
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-bg">
+				<a class="sidebar-toggle">
+					<i class="hamburger align-self-center"></i>
+				</a>
+				<form class="d-none d-sm-inline-block">
+					<div class="input-group input-group-navbar">
+						<input type="text" class="form-control" placeholder="Поиск..." aria-label="Search">
+						<button class="btn" type="button">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" data-lucide="search" class="lucide lucide-search align-middle">
+								<circle cx="11" cy="11" r="8"></circle>
+								<path d="m21 21-4.3-4.3"></path>
+							</svg>
+						</button>
+					</div>
+				</form>
+
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align align-items-center">
+						<li class="nav-item">
+							<a href="#" class="nav-link nav-link-balance">
+								<span>Баланс РисанКоин:</span>
+								<span class="nav-link-balance__val">32</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-icon" href="#">
+								<i class="align-middle" data-lucide="shopping-cart"></i>
+							</a>
+
+						</li>
+
+
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
+								data-bs-toggle="dropdown">
+								<i class="align-middle" data-lucide="settings"></i>
+							</a>
+
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+								data-bs-toggle="dropdown">
+								<img src="img/avatars/avatar.jpg" class="img-fluid rounded-circle me-1 mt-n2 mb-n2"
+									alt="Иван Иванов" width="40" height="40" /> <span>Иван Иванов</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class='dropdown-item' href='pages-profile.html'><i class="align-middle me-1"
+										data-lucide="user"></i>
+									Profile</a>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1"
+										data-lucide="pie-chart"></i>
+									Analytics</a>
+								<div class="dropdown-divider"></div>
+								<a class='dropdown-item' href='pages-settings.html'>Settings & Privacy</a>
+								<a class="dropdown-item" href="#">Help</a>
+								<a class="dropdown-item" href="#">Sign out</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<main class="content content-polls-page">
+				<div class="container-fluid p-0">
+
+					<div class="container p-0">
+						<div class="row">
+							<div class="col-12 col-lg-8">
+								<div class="card">
+									<div class="card-body h-100">
+										<div class="news-card__row">
+											<div class="news-card-tags">
+												<span class="badge bg-danger">Активный</span>
+											</div>
+											<div class="news-card__date">21 сентября 2025</div>
+										</div>
+
+										<hr>
+										<h1 class="mb-3">«Банк обратной связи»</h1>
+										<img src="img/polls/polls1.jpg" alt=""
+											class="img-fluid img-border-radius max-width-600 w-100">
+										<p class="mt-3 mb-3 font-400 color-dark lh-normal"><strong>"Банк обратной связи"
+												- причинно-следственная связь, согласно которой все наши действия будут
+												иметь последствия.</strong>
+										</p>
+										<p>Наказать или поощрить - теперь решать вам!</p>
+
+										<p>Каждый вторник у вас будет право выбрать ОДНОГО сотрудника, и выделить его
+											поощрив или отняв один Рисанкоин.</p>
+
+										<p>Если вы выбираете "Наградить", то вы благодарите сотрудника, и кладете ему в
+											копилку 1 Рисанкоин.</p>
+
+										<p>Если же вы хотите “Наказать” сотрудника за некомпетентность или неприемлемые
+											действия, то вы нажимаете кнопку "Наказать", тем самым забирая из копилки
+											сотрудника 1 Рисанкоин.</p>
+
+
+										<hr>
+
+										<h5 class="color-dark">Автор идеи:</h5>
+
+										<div class="d-flex align-items-center author-box">
+											<img src="img/avatars/avatar.jpg" width="40" height="40"
+												class="rounded-circle me-2" alt="">
+											<div class="flex-grow-1">
+												<small>Иван <br>
+													Иванов</small>
+											</div>
+										</div>
+										<hr>
+
+										<div class="survey-box">
+											<h3>Опрос</h3>
+											<h5>Выберите действие которое вы хотели бы выполнить</h5>
+											<form method="post" class="form-survey">
+
+												<label class="form-check">
+													<input name="radio-3" type="radio" class="form-check-input" checked>
+													<span class="form-check-label">наградить</span>
+												</label>
+
+												<label class="form-check">
+													<input name="radio-3" type="radio" class="form-check-input">
+													<span class="form-check-label">наказать</span>
+												</label>
+												<button type="submit"
+													class="btn btn-lg btn-primary mt-2 mb-2">Ответить</button>
+											</form>
+											<p class="color-gray">Завершение опроса: <span class="color-dark">24
+													сентября 2025</span></p>
+										</div>
+
+										<hr>
+
+
+										<div class="results-boxes w-100">
+											<h3>Результаты</h3>
+											<div class="results-box">
+												<div class="results-box__head">
+													<p class="results-box__val">66%</p>
+													<h5>Наградить</h5>
+												</div>
+
+												<div class="results-box__body">
+													<div class="d-flex align-items-center author-box">
+														<img src="img/avatars/avatar.jpg" width="40" height="40"
+															class="rounded-circle me-2" alt="">
+														<div class="flex-grow-1">
+															<small>Иван
+																Иванов</small>
+														</div>
+													</div>
+
+													<div class="d-flex align-items-center author-box">
+														<img src="img/avatars/avatar-3.jpg" width="40" height="40"
+															class="rounded-circle me-2" alt="">
+														<div class="flex-grow-1">
+															<small>Кристина Белова</small>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="results-box">
+												<div class="results-box__head">
+													<p class="results-box__val">33%</p>
+													<h5>Наказать</h5>
+												</div>
+
+												<div class="results-box__body">
+													<div class="d-flex align-items-center author-box">
+														<img src="img/avatars/avatar-2.jpg" width="40" height="40"
+															class="rounded-circle me-2" alt="">
+														<div class="flex-grow-1">
+															<small>Андрей Петров</small>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<hr>
+
+										<div class="comments-boxes w-100">
+											<h3>Комментарии</h3>
+
+											<div class="d-flex align-items-start flex-wrap w-100 comment-box">
+												<div class="comment-box__head w-100">
+													<img src="img/avatars/avatar.jpg" width="40" height="40"
+														class="rounded-circle me-2" alt="">
+													<div class="flex-grow-1">
+														<small>Иван Иванов</small>
+														<br>
+														<small class="text-muted">18 сен 2023, 12:41</small>
+														<small><a href="#"
+																class="text-decoration-underline color-gray link-edit">Изменить</a></small>
+													</div>
+												</div>
+												<div class="comment-box__body w-100 mt-1">
+													<p>
+														Замечательная идея. Я за!
+													</p>
+
+													<a href="#" class="color-accent link-answer">Ответить</a>
+
+													<hr>
+												</div>
+											</div>
+
+
+											<div class="d-flex align-items-start flex-wrap w-100 comment-box">
+												<div class="comment-box__head w-100">
+													<img src="img/avatars/avatar-6.jpg" width="40" height="40"
+														class="rounded-circle me-2" alt="">
+													<div class="flex-grow-1">
+														<small>Серебрякова Анна</small>
+														<br>
+														<small class="text-muted">18 сен 2023, 12:41</small>
+														<small><a href="#"
+																class="text-decoration-underline color-gray link-edit">Изменить</a></small>
+													</div>
+												</div>
+												<div class="comment-box__body w-100 mt-1">
+													<p>
+														Поддерживаю. It is a long established fact that a reader will be
+														distracted by the readable content of a page when looking at its
+														layout. The point of using Lorem Ipsum is that it has a
+														more-or-less normal distribution of letters, as opposed to using
+														'Content here, content here', making it look like readable
+														English. Many desktop publishing packages and web page editors
+														now use Lorem Ipsum as their default model text, and a search
+														for 'lorem ipsum' will uncover many web sites still in their
+														infancy. Various versions have evolved over the years, sometimes
+														by accident, sometimes on purpose (injected humour and the
+														like).
+													</p>
+
+													<a href="#" class="color-accent link-answer">Ответить</a>
+
+													<hr>
+
+													<div class="answer-comment w-100">
+														<div class="answer-comment__head">
+															<h4>Комментарий к записи Серебрякова Анна</h4>
+
+															<a href="#"
+																class="text-decoration-underline color-gray close-answer text-muted">Отменить
+																ответ</a>
+														</div>
+
+														<div class="answer-comment__author mb-3 text-muted">
+															<p>Вы вошли как Иванов Иван</p>
+															<a href="#"
+																class="text-decoration-underline color-gray">Изменить
+																свой профиль.</a>
+															<a href="#"
+																class="text-decoration-underline color-gray">Выйти?</a>
+														</div>
+
+														<div class="answer-comment__body">
+															<form method="post" class="form-comment">
+																<div class="mb-3">
+																	<textarea class="form-control"
+																		placeholder="Введите комментарий"></textarea>
+																</div>
+																<button type="submit"
+																	class="btn btn-lg btn-primary">Отправить
+																	комментарий</button>
+															</form>
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+											<div class="answer-comment add-comment w-100">
+												<div class="answer-comment__head">
+													<h4>Добавить комментарий</h4>
+
+												</div>
+
+												<div class="answer-comment__author mb-3 text-muted">
+													<p>Вы вошли как Иванов Иван</p>
+													<a href="#" class="text-decoration-underline color-gray">Изменить
+														свой профиль.</a>
+													<a href="#" class="text-decoration-underline color-gray">Выйти?</a>
+												</div>
+
+												<div class="answer-comment__body">
+													<form method="post" class="form-comment">
+														<div class="mb-3">
+															<textarea class="form-control"
+																placeholder="Введите комментарий"></textarea>
+														</div>
+														<button type="submit" class="btn btn-lg btn-primary">Отправить
+															комментарий</button>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="col-12 col-lg-4">
+								<div class="card card-new-page">
+									<div class="card-header">
+										<h5 class="card-title mb-0">Другие опросы</h5>
+									</div>
+									<div class="card-body h-100">
+										<div class="shop-card news-card polls-card">
+											<a href="dashboard-polls-page.html"
+												class="shop-card__img news-card__img"><img src="img/polls/polls2.png"
+													alt=""></a>
+											<div class="shop-card__body news-card__body">
+												<a href="dashboard-polls-page.html"
+													class="shop-card__name h4 news-card__name">Гонка
+													Героев 2025</a>
+												<div class="news-card__row">
+													<div class="news-card-tags">
+														<span class="badge bg-danger">Активный</span>
+													</div>
+													<div class="news-card__date">21 сентября 2025</div>
+												</div>
+
+												<div class="shop-card__description news-card__description">
+													<p>Пройти опрос необходимо только тем, кто хочет поехать на Гонку
+														Героев в этом
+														году, как участник/болельщик!
+													</p>
+												</div>
+											</div>
+										</div>
+										<hr />
+
+										<div class="shop-card news-card polls-card">
+											<a href="dashboard-polls-page.html"
+												class="shop-card__img news-card__img"><img src="img/polls/polls3.png"
+													alt=""></a>
+											<div class="shop-card__body news-card__body">
+												<a href="dashboard-polls-page.html"
+													class="shop-card__name h4 news-card__name">Новогодний корпоратив
+													"Новый год в
+													джунглях"</a>
+												<div class="news-card__row">
+													<div class="news-card-tags">
+														<span class="badge bg-secondary">Завершенный</span>
+													</div>
+													<div class="news-card__date">21 сентября 2025</div>
+												</div>
+
+												<div class="shop-card__description news-card__description">
+													<p>Мы хотим, чтобы наши ежегодные мероприятия становились лучше
+													</p>
+												</div>
+											</div>
+										</div>
+										<hr />
+										<div class="shop-card news-card polls-card">
+											<a href="dashboard-polls-page.html"
+												class="shop-card__img news-card__img"><img src="img/polls/polls1.jpg"
+													alt=""></a>
+											<div class="shop-card__body news-card__body">
+												<a href="dashboard-polls-page.html"
+													class="shop-card__name h4 news-card__name">Банк
+													обратной связи</a>
+												<div class="news-card__row">
+													<div class="news-card-tags">
+														<span class="badge bg-danger">Активный</span>
+													</div>
+													<div class="news-card__date">21 сентября 2025</div>
+												</div>
+
+												<div class="shop-card__description news-card__description">
+													<p>Причинно-следственная связь, согласно которой все наши действия
+														будут иметь
+														последствия.
+													</p>
+												</div>
+											</div>
+										</div>
+										<hr />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/fancybox.umd.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/common.js"></script>
+
+</body>
+
+</html>

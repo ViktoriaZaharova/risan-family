@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<!--
+  HOW TO USE: 
+  data-layout: fluid (default), boxed
+  data-sidebar-theme: dark (default), colored, light
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+<html lang="en" data-bs-theme="dark" data-layout="fluid" data-sidebar-theme="dark" data-sidebar-position="left"
+	data-sidebar-behavior="sticky">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
+	<meta name="author" content="Bootlab">
+
+	<title>Регистрация по номеру телефона - код подтверждения</title>
+
+	<link rel="canonical" href="auth-2fa.html" />
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&amp;display=swap" rel="stylesheet"> -->
+
+	<link href="css/app.css" rel="stylesheet">
+
+	<!-- BEGIN SETTINGS -->
+	<!-- Remove this after purchasing -->
+	<!-- <script src="js/settings.js"></script> -->
+	<!-- END SETTINGS -->
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<ul>
+					<li><a href="auth-2fa-cover.html">auth-2fa-cover.html +</a></li>
+					<li><a href="auth-sign-in-cover.html">auth-sign-in-cover.html +</a></li>
+					<li><a href="auth-sign-up-cover.html">auth-sign-up-cover.html +</a></li>
+					<li><a href="dashboard-shop.html">dashboard-shop.html +</a></li>
+					<li><a href="dashboard-shop-page.html">dashboard-shop-page.html +</a></li>
+					<li><a href="dashboard-news.html">dashboard-news.html +</a></li>
+					<li><a href="dashboard-news-page.html">dashboard-news-page.html +</a></li>
+					<li><a href="dashboard-polls.html">dashboard-polls.html +</a></li>
+					<li><a href="dashboard-suggestions.html">dashboard-suggestions.html +</a></li>
+					<li><a href="dashboard-polls-page.html">dashboard-polls-page.html +</a></li>
+					<li><a href="dashboard-suggestions-page.html">dashboard-suggestions-page.html +</a></li>
+					<li><a href="dashboard-employees.html">dashboard-employees.html +</a></li>
+					<li><a href="dashboard-information.html">dashboard-information.html +</a></li>
+					<li><a href="dashboard-profile.html">dashboard-profile.html +</a></li>
+					<li><a href="dashboard-default.html">dashboard-default.html -</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- BEGIN primary modal -->
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#centeredModalPrimary">
+		Ваш аккаунт отправлен на модерацию
+	</button>
+	<div class="modal fade" id="centeredModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Ваш аккаунт отправлен на модерацию</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<div class="lion-image-modal"><img src="img/lion.png" alt=""></div>
+					<p class="mb-0">Ожидайте, вам придет СМС-уведомление об активации аккаунта</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#centeredModalBalance">
+		На вашем балансе недостаточно РисанКоинов
+	</button>
+	<div class="modal fade modal-v2" id="centeredModalBalance" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- <h5 class="modal-title">Ваш аккаунт отправлен на модерацию</h5> -->
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<div class="lion-image-modal"><img src="img/lion2.png" alt=""></div>
+					<p class="mb-0">На вашем балансе недостаточно РисанКоинов</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#centeredModalAreYouSure">
+		Вы уверены?
+	</button>
+	<div class="modal fade modal-v2" id="centeredModalAreYouSure" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- <h5 class="modal-title">Ваш аккаунт отправлен на модерацию</h5> -->
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<div class="lion-image-modal"><img src="img/lion3.png" alt=""></div>
+					<p class="mb-0">Вы уверены?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Уверен, покупаю</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#centeredModalSuccessful">
+		Вы уверены?
+	</button>
+	<div class="modal fade modal-v2" id="centeredModalSuccessful" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- <h5 class="modal-title">Ваш аккаунт отправлен на модерацию</h5> -->
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<div class="lion-image-modal"><img src="img/lion3.png" alt=""></div>
+					<h5>Оплата прошла успешно</h5>
+					<p class="mb-0">Забрать покупку вы можете по адресу: г.Пенза, ул.Строителей, дом 8</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#centeredModalModeration">
+		Инициированное вами предложение отправлено
+		на модерацию
+	</button>
+	<div class="modal fade modal-v2" id="centeredModalModeration" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- <h5 class="modal-title">Ваш аккаунт отправлен на модерацию</h5> -->
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<div class="lion-image-modal"><img src="img/lion6.png" alt=""></div>
+					<p class="mb-0">Инициированное вами предложение отправлено
+						на модерацию</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal"
+		data-bs-target="#centeredModalModeration2">
+		Предложенный вами опрос отправлен на модерацию
+	</button>
+	<div class="modal fade modal-v2" id="centeredModalModeration2" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- <h5 class="modal-title">Ваш аккаунт отправлен на модерацию</h5> -->
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<div class="lion-image-modal"><img src="img/lion6.png" alt=""></div>
+					<p class="mb-0">Предложенный вами опрос отправлен на модерацию</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#pollsModal">
+		Создание опроса
+	</button>
+	<div class="modal fade" id="pollsModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<form method="post" class="form-modal w-100">
+					<div class="modal-header">
+						<h5 class="modal-title">Создание опроса</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body text-center">
+
+						<div class="mb-3 row">
+							<label class="col-form-label col-sm-3 text-start">Заголовок</label>
+							<div class="col-sm-9">
+								<textarea name="title" class="form-control h-72"
+									placeholder="Введите текст заголовка"></textarea>
+							</div>
+						</div>
+
+
+						<div class="mb-3 row">
+							<label class="col-form-label col-sm-3 text-start">Загрузите фото</label>
+							<div class="col-sm-9">
+								<div class="photo-form">
+									<img src="img/avatar.jpg" alt="">
+									<a href="#" class="photo-form__delete"><i class="align-middle"
+											data-lucide="trash-2"></i></a>
+								</div>
+								<a href="#" class="btn btn-lg btn-border btn-my btn-border-accent">
+									<i class="fas fa-upload"></i>
+									<span>Загрузить</span>
+								</a>
+							</div>
+						</div>
+
+
+						<div class="mb-3 row">
+							<label class="col-form-label col-sm-3 text-start">Заголовок</label>
+							<div class="col-sm-9">
+								<textarea name="title" class="form-control h-174"
+									placeholder="Введите текст заголовка"></textarea>
+							</div>
+						</div>
+
+
+						<div class="mb-3 row">
+							<label class="col-form-label col-sm-3 text-start">Разрешить
+								комментарии</label>
+							<div class="col-sm-9">
+								<div class="form-check form-switch form-switch-sm">
+									<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+									<label class="form-check-label" for="flexSwitchCheckDefault">Да</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="mb-3 row">
+							<label class="col-form-label col-sm-3 text-start">Дата окончания</label>
+							<div class="col-sm-9">
+
+								<div class="overflow-hidden form-control-wrap">
+									<input class="form-control" type="text" name="datesingle">
+									<svg width="16" height="16" class="icon-calendar" viewBox="0 0 16 16" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_21246_4256)">
+											<path d="M5.33398 1.33337V4.00004" stroke="#7A79A3" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+											<path d="M10.666 1.33337V4.00004" stroke="#7A79A3" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+											<path
+												d="M12.6667 2.66663H3.33333C2.59695 2.66663 2 3.26358 2 3.99996V13.3333C2 14.0697 2.59695 14.6666 3.33333 14.6666H12.6667C13.403 14.6666 14 14.0697 14 13.3333V3.99996C14 3.26358 13.403 2.66663 12.6667 2.66663Z"
+												stroke="#7A79A3" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path d="M2 6.66663H14" stroke="#7A79A3" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</g>
+										<defs>
+											<clipPath id="clip0_21246_4256">
+												<rect width="16" height="16" fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
+
+								</div>
+
+							</div>
+						</div>
+
+						<hr>
+
+						<h3 class="text-start">Вопросы</h3>
+						<div class="form-question-wrapper">
+							<a href="#" class="btn btn-lg btn-border btn-my btn-border-black mb-3 ms-auto">
+								<span>Удалить вопрос</span>
+								<i class="align-middle" data-lucide="trash-2"></i>
+							</a>
+
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-start">Вопрос</label>
+								<div class="col-sm-9">
+									<textarea name="title" class="form-control h-93"
+										placeholder="Введите текст заголовка"></textarea>
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-start">Тип ответов</label>
+								<div class="col-sm-9">
+									<div class="form-check form-switch form-switch-sm">
+										<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2">
+										<label class="form-check-label" for="flexSwitchCheckDefault2">Несколько
+											вариантов
+											ответов</label>
+									</div>
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-start">Ответ</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" placeholder="Введите ответ и нажмите Enter">
+								</div>
+							</div>
+
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-start">Ответ</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" placeholder="Введите ответ и нажмите Enter">
+								</div>
+							</div>
+
+							<div class="mb-3 row">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-9">
+									<a href="#" class="btn btn-lg btn-my btn-border btn-border-accent w-100">
+										<span>Добавить вариант ответа</span>
+										<i class="align-middle" data-lucide="plus"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<a href="#" class="btn btn-lg btn-my btn-border btn-border-accent w-100">
+							<span>Добавить вопрос</span>
+							<i class="align-middle" data-lucide="plus"></i>
+						</a>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-border btn-border-black"
+							data-bs-dismiss="modal">Отмена</button>
+						<button type="submit" class="btn btn-primary">Отправить на модерацию</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#pollsModal2">
+		Создание опроса - валидация
+	</button>
+
+	<div class="modal fade" id="pollsModal2" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<form method="post" class="form-modal w-100">
+					<div class="modal-header">
+						<h5 class="modal-title">Создание опроса</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body text-center">
+
+						<div class="mb-3 row error-placeholder">
+							<label class="col-form-label col-sm-3 text-start">Заголовок</label>
+							<div class="col-sm-9">
+								<textarea name="title" class="form-control is-invalid h-72"
+									placeholder="Введите текст заголовка"></textarea>
+								<label class="error jquery-validation-error small form-text invalid-feedback">Заполните
+									это поле</label>
+							</div>
+						</div>
+
+
+						<div class="mb-3 row">
+							<label class="col-form-label col-sm-3 text-start">Загрузите фото</label>
+							<div class="col-sm-9">
+								<div class="photo-form">
+									<img src="img/avatar.jpg" alt="">
+									<a href="#" class="photo-form__delete"><i class="align-middle"
+											data-lucide="trash-2"></i></a>
+								</div>
+								<a href="#" class="btn btn-lg btn-border btn-my btn-border-accent">
+									<i class="fas fa-upload"></i>
+									<span>Загрузить</span>
+								</a>
+							</div>
+						</div>
+
+
+						<div class="mb-3 row error-placeholder">
+							<label class="col-form-label col-sm-3 text-start">Заголовок</label>
+							<div class="col-sm-9">
+								<textarea name="title" class="form-control is-invalid h-174"
+									placeholder="Введите текст заголовка"></textarea>
+								<label class="error jquery-validation-error small form-text invalid-feedback">Заполните
+									это поле</label>
+							</div>
+						</div>
+
+
+						<div class="mb-3 row">
+							<label class="col-form-label col-sm-3 text-start">Разрешить
+								комментарии</label>
+							<div class="col-sm-9">
+								<div class="form-check form-switch form-switch-sm">
+									<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+									<label class="form-check-label" for="flexSwitchCheckDefault">Да</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="mb-3 row error-placeholder">
+							<label class="col-form-label col-sm-3 text-start">Дата окончания</label>
+							<div class="col-sm-9">
+
+								<div class="overflow-hidden form-control-wrap">
+									<input class="form-control is-invalid" type="text" name="datesingle">
+									<svg width="16" height="16" class="icon-calendar" viewBox="0 0 16 16" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_21246_4256)">
+											<path d="M5.33398 1.33337V4.00004" stroke="#7A79A3" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+											<path d="M10.666 1.33337V4.00004" stroke="#7A79A3" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+											<path
+												d="M12.6667 2.66663H3.33333C2.59695 2.66663 2 3.26358 2 3.99996V13.3333C2 14.0697 2.59695 14.6666 3.33333 14.6666H12.6667C13.403 14.6666 14 14.0697 14 13.3333V3.99996C14 3.26358 13.403 2.66663 12.6667 2.66663Z"
+												stroke="#7A79A3" stroke-width="1.5" stroke-linecap="round"
+												stroke-linejoin="round" />
+											<path d="M2 6.66663H14" stroke="#7A79A3" stroke-width="1.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</g>
+										<defs>
+											<clipPath id="clip0_21246_4256">
+												<rect width="16" height="16" fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
+									<label
+										class="error jquery-validation-error small form-text invalid-feedback">Заполните
+										это поле</label>
+								</div>
+
+							</div>
+						</div>
+
+						<hr>
+
+						<h3 class="text-start">Вопросы</h3>
+						<div class="form-question-wrapper">
+							<a href="#" class="btn btn-lg btn-border btn-my btn-border-black mb-3 ms-auto">
+								<span>Удалить вопрос</span>
+								<i class="align-middle" data-lucide="trash-2"></i>
+							</a>
+
+							<div class="mb-3 row error-placeholder">
+								<label class="col-form-label col-sm-3 text-start">Вопрос</label>
+								<div class="col-sm-9">
+									<textarea name="title" class="form-control h-93"
+										placeholder="Введите текст заголовка"></textarea>
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-start">Тип ответов</label>
+								<div class="col-sm-9">
+									<div class="form-check form-switch form-switch-sm">
+										<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2"
+											checked>
+										<label class="form-check-label" for="flexSwitchCheckDefault2">Несколько
+											вариантов
+											ответов</label>
+									</div>
+								</div>
+							</div>
+							<div class="mb-3 row error-placeholder">
+								<label class="col-form-label col-sm-3 text-start">Ответ</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control is-invalid"
+										placeholder="Введите ответ и нажмите Enter">
+									<label
+										class="error jquery-validation-error small form-text invalid-feedback">Заполните
+										это поле</label>
+								</div>
+							</div>
+
+							<div class="mb-3 row">
+								<label class="col-form-label col-sm-3 text-start">Ответ</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control is-invalid"
+										placeholder="Введите ответ и нажмите Enter">
+									<label
+										class="error jquery-validation-error small form-text invalid-feedback">Добавьте
+										вариант ответа</label>
+								</div>
+							</div>
+
+							<div class="mb-3 row">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-9">
+									<a href="#" class="btn btn-lg btn-my btn-border btn-border-accent w-100">
+										<span>Добавить вариант ответа</span>
+										<i class="align-middle" data-lucide="plus"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<a href="#" class="btn btn-lg btn-my btn-border btn-border-accent w-100">
+							<span>Добавить вопрос</span>
+							<i class="align-middle" data-lucide="plus"></i>
+						</a>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-border btn-border-black"
+							data-bs-dismiss="modal">Отмена</button>
+						<button type="submit" class="btn btn-primary">Отправить на модерацию</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#thanksModal">
+		Отправка благодарности сотруднику
+	</button>
+
+	<!-- Modal: Отправка благодарности сотруднику -->
+	<div class="modal fade" id="thanksModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content thanks-modal">
+				<div class="modal-header">
+					<h5 class="modal-title">Отправка благодарности сотруднику</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+
+				<div class="modal-body">
+					<div class="row g-4">
+						<!-- Левая часть -->
+						<div class="col-md-5">
+							<h3 class="mb-3">
+								Выберите сотрудника,<br>
+								кого бы вы хотели поблагодарить
+							</h3>
+
+							<div class="thanks-search">
+								<form method="post" class="form-search">
+									<div class="input-group input-group-navbar">
+										<input type="text" class="form-control" placeholder="Начните вводить текст">
+										<button class="btn" type="button">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+												viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+												stroke-linecap="round" stroke-linejoin="round" data-lucide="search"
+												class="lucide lucide-search align-middle">
+												<circle cx="11" cy="11" r="8"></circle>
+												<path d="m21 21-4.3-4.3"></path>
+											</svg>
+										</button>
+									</div>
+								</form>
+							</div>
+
+							<div class="thanks-users">
+								<h5 class="mb-2">Все сотрудники</h5>
+								<ul class="mb-0 thanks-user-list my-ul">
+									<li><a href="#" class="thanks-user">Антиов Сергей Петрович</a></li>
+									<li><a href="#" class="thanks-user">Викторов Сергей Петрович</a></li>
+									<li><a href="#" class="thanks-user">Брыгин Сергей Петрович</a></li>
+									<li><a href="#" class="thanks-user">Соловьёв Сергей Петрович</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Правая часть -->
+						<div class="col-md-7">
+							<div class="thanks-badges">
+								<div class="row g-3">
+									<!-- Карточки бейджей -->
+									<h3 class="mb-0">Выберите бейдж</h3>
+									<div class="col-6 col-lg-4">
+										<div class="thanks-badge text-center p-2 rounded shadow-sm">
+											<img src="img/badge1.png" alt="Благодарю" class="img-fluid">
+											<button
+												class="btn btn-lg btn-my btn-border btn-border-accent w-100">Отправить</button>
+										</div>
+									</div>
+									<div class="col-6 col-lg-4">
+										<div class="thanks-badge text-center p-3 rounded shadow-sm">
+											<img src="img/badge2.png" alt="Благодарю" class="img-fluid">
+											<button
+												class="btn btn-lg btn-my btn-border btn-border-accent w-100">Отправить</button>
+										</div>
+									</div>
+									<div class="col-6 col-lg-4">
+										<div class="thanks-badge text-center p-3 rounded shadow-sm">
+											<img src="img/badge3.png" alt="Цветы" class="img-fluid mb-2">
+											<p class="fw-semibold mb-2 small">БЛАГОДАРЮ!</p>
+											<button class="btn btn-outline-danger w-100">Отправить</button>
+										</div>
+									</div>
+									<div class="col-6 col-lg-4">
+										<div class="thanks-badge text-center p-3 rounded shadow-sm">
+											<img src="img/badge4.png" alt="Палец вверх" class="img-fluid mb-2">
+											<p class="fw-semibold mb-2 small">Отлично!</p>
+											<button class="btn btn-outline-danger w-100">Отправить</button>
+										</div>
+									</div>
+									<div class="col-6 col-lg-4">
+										<div class="thanks-badge text-center p-3 rounded shadow-sm">
+											<img src="img/badge5.png" alt="Горжусь" class="img-fluid mb-2">
+											<p class="fw-semibold mb-2 small">ГОРЖУСЬ!</p>
+											<button class="btn btn-outline-danger w-100">Отправить</button>
+										</div>
+									</div>
+									<div class="col-6 col-lg-4">
+										<div class="thanks-badge text-center p-3 rounded shadow-sm">
+											<img src="img/badge6.png" alt="Профессионал" class="img-fluid mb-2">
+											<p class="fw-semibold mb-2 small">ПРОФЕССИОНАЛ!</p>
+											<button class="btn btn-outline-danger w-100">Отправить</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="text-center mt-3">
+									<button class="btn btn-lg btn-border btn-border-black btn-my btn-loader-thanks-badge w-100">Показать ещё</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- END primary modal -->
+
+
+	<script src="js/app.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Select2
+			$(".select2").each(function () {
+				$(this)
+					.wrap("<div class=\"position-relative\"></div>")
+					.select2({
+						placeholder: "Select value",
+						dropdownParent: $(this).parent()
+					});
+			})
+			// Daterangepicker
+			$("input[name=\"daterange\"]").daterangepicker({
+				opens: "left"
+			});
+			$("input[name=\"datetimes\"]").daterangepicker({
+				timePicker: true,
+				opens: "left",
+				startDate: moment().startOf("hour"),
+				endDate: moment().startOf("hour").add(32, "hour"),
+				locale: {
+					format: "M/DD hh:mm A"
+				}
+			});
+			$("input[name=\"datesingle\"]").daterangepicker({
+				singleDatePicker: true,
+				showDropdowns: true,
+				locale: {
+					format: "MM.DD.YYYY",
+					applyLabel: 'Применить',
+					cancelLabel: 'Отмена',
+					fromLabel: 'С',
+					toLabel: 'По',
+					customRangeLabel: 'Произвольный',
+					weekLabel: 'Н',
+					daysOfWeek: [
+						'Вс',
+						'Пн',
+						'Вт',
+						'Ср',
+						'Чт',
+						'Пт',
+						'Сб'
+					],
+					monthNames: [
+						'Январь',
+						'Февраль',
+						'Март',
+						'Апрель',
+						'Май',
+						'Июнь',
+						'Июль',
+						'Август',
+						'Сентябрь',
+						'Октябрь',
+						'Ноябрь',
+						'Декабрь'
+					],
+					firstDay: 1 // Start week on Monday
+				}
+			});
+			var start = moment().subtract(29, "days");
+			var end = moment();
+
+			function cb(start, end) {
+				$("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
+			}
+			$("#reportrange").daterangepicker({
+				startDate: start,
+				endDate: end,
+				ranges: {
+					"Today": [moment(), moment()],
+					"Yesterday": [moment().subtract(1, "days"), moment().subtract(1, "days")],
+					"Last 7 Days": [moment().subtract(6, "days"), moment()],
+					"Last 30 Days": [moment().subtract(29, "days"), moment()],
+					"This Month": [moment().startOf("month"), moment().endOf("month")],
+					"Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")]
+				}
+			}, cb);
+			cb(start, end);
+		});
+	</script>
+
+
+
+</body>
+
+</html>

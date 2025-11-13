@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+  HOW TO USE: 
+  data-layout: fluid (default), boxed
+  data-sidebar-theme: dark (default), colored, light
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+<html lang="ru" data-bs-theme="dark" data-layout="fluid" data-sidebar-theme="dark" data-sidebar-position="left"
+	data-sidebar-behavior="sticky">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
+	<meta name="author" content="Bootlab">
+
+	<title>Регистрация по номеру телефона - код подтверждения</title>
+
+	<link rel="canonical" href="auth-2fa.html" />
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<link href="css/app.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+	<div class="authorization-page registration-page w-100">
+	<div class="container-fluid p-0">
+		<div class="row g-0">
+			<div class="col-xl-6 d-none d-xl-flex">
+				<div class="auth-full-page position-relative auth-full-page__left">
+					<img src="img/photos/authorization-bg.jpg" class="auth-bg" alt="Unsplash">
+					<div class="auth-quote">
+						<a href="#" class="auth-full-page-logo">
+							<img src="img/logo-2.svg" alt="">
+							<span>Внутрикорпоративная
+								платформа</span>
+						</a>
+					</div>
+
+					<div class="lion-icon"><img src="img/lion-icon.png" alt=""></div>
+				</div>
+			</div>
+			<div class="col-xl-6">
+				<div class="auth-full-page d-flex p-4 p-xl-5 auth-full-page__right">
+					<div class="d-flex flex-column w-100 h-100">
+						<div class="auth-form">
+
+							<div class="text-center">
+								<h1 class="h2">Регистрация</h1>
+								<p class="lead">
+									Введите код из СМС-сообщения, отправленного на номер <strong class="color-secondary">+7 (000) 000 00
+										00 </strong>
+								</p>
+							</div>
+
+							<div class="mb-3">
+								<form>
+									<div class="mb-3">
+										<div class="row">
+											<div class="col-2">
+												<input class="form-control form-control-lg" type="text" name="code" placeholder="0" />
+											</div>
+											<div class="col-2">
+												<input class="form-control form-control-lg" type="text" name="code" placeholder="0" />
+											</div>
+											<div class="col-2">
+												<input class="form-control form-control-lg" type="text" name="code" placeholder="0" />
+											</div>
+											<div class="col-2">
+												<input class="form-control form-control-lg" type="text" name="code" placeholder="0" />
+											</div>
+											<div class="col-2">
+												<input class="form-control form-control-lg" type="text" name="code" placeholder="0" />
+											</div>
+											<div class="col-2">
+												<input class="form-control form-control-lg" type="text" name="code" placeholder="0" />
+											</div>
+										</div>
+
+									</div>
+									<div class="d-grid gap-2 mt-3">
+										<a class='btn btn-lg btn-primary' href='dashboard-default.html'>Подтвердить регистрацию</a>
+									</div>
+								</form>
+							</div>
+
+							<div class="text-center">
+								<a href="#">Запросить код повторно</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- BEGIN primary modal -->
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#centeredModalPrimary">
+		Ваш аккаунт отправлен на модерацию
+	</button>
+	<div class="modal fade" id="centeredModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Ваш аккаунт отправлен на модерацию</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<div class="lion-image-modal"><img src="img/lion.png" alt=""></div>
+					<p class="mb-0">Ожидайте, вам придет СМС-уведомление об активации аккаунта</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END primary modal -->
+
+	<script src="js/app.js"></script>
+
+</body>
+
+</html>

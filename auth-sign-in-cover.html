@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+  HOW TO USE: 
+  data-layout: fluid (default), boxed
+  data-sidebar-theme: dark (default), colored, light
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+<html lang="en" data-bs-theme="dark" data-layout="fluid" data-sidebar-theme="dark" data-sidebar-position="left"
+	data-sidebar-behavior="sticky">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
+	<meta name="author" content="Bootlab">
+
+	<title>Авторизация</title>
+
+	<link rel="canonical" href="auth-sign-in-cover.html" />
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&amp;display=swap" rel="stylesheet"> -->
+
+	<link href="css/app.css" rel="stylesheet">
+
+	<!-- BEGIN SETTINGS -->
+	<!-- Remove this after purchasing -->
+	<!-- <script src="js/settings.js"></script> -->
+	<!-- END SETTINGS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3ZYEKLQ68"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-Q3ZYEKLQ68');
+	</script>
+</head>
+
+<body>
+	<div class="authorization-page w-100">
+		<div class="container-fluid p-0">
+			<div class="row g-0">
+				<div class="col-xl-6 d-none d-xl-flex">
+					<div class="auth-full-page position-relative auth-full-page__left">
+						<img src="img/photos/authorization-bg.jpg" class="auth-bg" alt="Unsplash">
+						<div class="auth-quote">
+							<div class="lion-icon"><img src="img/lion-icon.png" alt=""></div>
+							<a href="#" class="auth-full-page-logo">
+								<img src="img/logo-2.svg" alt="">
+								<span>Внутрикорпоративная
+									платформа</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="auth-full-page d-flex p-4 p-xl-5 auth-full-page__right">
+						<div class="d-flex flex-column w-100 h-100">
+							<div class="auth-form">
+
+								<div class="text-center">
+									<h1 class="h2">Добро пожаловать!</h1>
+									<p class="lead">
+										Авторизируйтесь для входа
+									</p>
+								</div>
+
+								<div class="mb-3">
+									<form>
+										<div class="mb-3">
+											<input class="form-control form-control-lg" type="text" name="phone"
+												placeholder="Введите телефон" />
+										</div>
+										<div class="mb-3">
+											<input class="form-control form-control-lg mb-1" type="password" name="password"
+												placeholder="Введите пароль" />
+											<small>
+												<a href='auth-reset-password.html'>Забыли пароль?</a>
+											</small>
+										</div>
+
+										<div class="d-grid gap-2 mt-3">
+											<a class='btn btn-lg btn-primary' href='dashboard-default.html'>Войти</a>
+										</div>
+									</form>
+								</div>
+
+								<div class="text-center">
+									Еще нет аккаунта? <a href='auth-sign-up-cover.html'>Зарегистрироваться</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.js"></script>
+
+</body>
+
+</html>
