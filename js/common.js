@@ -211,34 +211,152 @@ $(function () {
 });
 
 
+// $(function () {
+//   const monthNames = [
+//     "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+//     "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+//   ];
+//   const weekDays = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"];
+
+//   function createCalendar($el, date) {
+//     const year = date.getFullYear();
+//     const month = date.getMonth();
+//     const today = new Date();
+
+//     const firstDay = new Date(year, month, 1);
+//     const lastDay = new Date(year, month + 1, 0);
+//     const startDay = (firstDay.getDay() + 6) % 7; // понедельник = 0
+//     const totalDays = lastDay.getDate();
+//     const prevMonthLast = new Date(year, month, 0).getDate();
+
+//     // === Шапка ===
+//     let html = `
+//       <div class="calendar-header d-flex justify-content-between align-items-center mb-2">
+//         <div class="calendar-nav d-flex gap-1">
+//           <button class="btn btn-link double-prev" title="Предыдущий год"></button>
+//           <button class="btn btn-link prev" title="Предыдущий месяц"></button>
+//         </div>
+//         <div class="calendar-title fw-semibold text-center">
+//           ${monthNames[month]} <span>${year}</span>
+//         </div>
+//         <div class="calendar-nav d-flex gap-1">
+//           <button class="btn btn-link next" title="Следующий месяц"></button>
+//           <button class="btn btn-link double-next" title="Следующий год"></button>
+//         </div>
+//       </div>
+//     `;
+
+//     // === Таблица ===
+//     html += `<div class="calendar-body"><table class="calendar-table w-100 text-center"><thead><tr>`;
+//     weekDays.forEach(d => html += `<th>${d}</th>`);
+//     html += `</tr></thead><tbody><tr>`;
+
+//     // Дни из предыдущего месяца
+//     for (let i = 0; i < startDay; i++) {
+//       const day = prevMonthLast - startDay + i + 1;
+//       html += `<td class="day other-month" data-day="${day}" data-month="${month - 1}" data-year="${year}">
+//         <span>${day}</span>
+//       </td>`;
+//     }
+
+//     // Основные дни
+//     for (let d = 1; d <= totalDays; d++) {
+//       if ((startDay + d - 1) % 7 === 0 && d !== 1) html += `</tr><tr>`;
+//       const isToday = (today.getFullYear() === year && today.getMonth() === month && today.getDate() === d);
+//       const todayClass = isToday ? 'today' : '';
+//       html += `<td class="day ${todayClass}" data-day="${d}" data-month="${month}" data-year="${year}">
+//         <span>${d}</span>
+//       </td>`;
+//     }
+
+//     // Дни из следующего месяца
+//     const remaining = 7 - ((startDay + totalDays) % 7);
+//     if (remaining < 7) {
+//       for (let i = 1; i <= remaining; i++) {
+//         html += `<td class="day other-month" data-day="${i}" data-month="${month + 1}" data-year="${year}">
+//           <span>${i}</span>
+//         </td>`;
+//       }
+//     }
+
+//     html += `</tr></tbody></table></div>`;
+//     $el.html(html);
+
+//     // === Навигация ===
+//     $el.find('.prev').on('click', () => createCalendar($el, new Date(year, month - 1, 1)));
+//     $el.find('.next').on('click', () => createCalendar($el, new Date(year, month + 1, 1)));
+//     $el.find('.double-prev').on('click', () => createCalendar($el, new Date(year - 1, month, 1)));
+//     $el.find('.double-next').on('click', () => createCalendar($el, new Date(year + 1, month, 1)));
+
+//     // === Выделение дат ===
+//     $el.find('.day').on('click', function () {
+//       const $day = $(this);
+//       if ($day.hasClass('other-month')) {
+//         const y = $day.data('year');
+//         const m = $day.data('month');
+//         createCalendar($el, new Date(y, m, 1));
+//       } else {
+//         $day.toggleClass('selected');
+//       }
+//     });
+//   }
+
+//   // ==== Инициализация всех календарей ====
+//   $('.calendar-instance').each(function () {
+//     const $this = $(this);
+//     createCalendar($this, new Date());
+//   });
+
+//   // ==== При переключении табов (Bootstrap) ====
+//   $(document).on('shown.bs.tab', function () {
+//     $('.calendar-instance').each(function () {
+//       const $this = $(this);
+//       if (!$this.data('rendered')) {
+//         createCalendar($this, new Date());
+//         $this.data('rendered', true);
+//       }
+//     });
+//   });
+// });
+
 $(function () {
   const monthNames = [
-    "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
-    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+    "Январь","Февраль","Март","Апрель","Май","Июнь",
+    "Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"
   ];
-  const weekDays = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"];
+  const weekDays = ["ПН","ВТ","СР","ЧТ","ПТ","СБ","ВС"];
+
+  // формат YYYY-MM-DD
+  function fmt(y,m,d){ return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
+
+  function parseDataDates(str){
+    if(!str) return [];
+    return str.split(',').map(s => s.trim()).filter(Boolean);
+  }
 
   function createCalendar($el, date) {
     const year = date.getFullYear();
     const month = date.getMonth();
     const today = new Date();
 
+    // читаем подсветки из data-атрибутов контейнера (приоритет)
+    const h1arr = parseDataDates($el.attr('data-highlight1'));
+    const h2arr = parseDataDates($el.attr('data-highlight2'));
+
     const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const startDay = (firstDay.getDay() + 6) % 7; // понедельник = 0
+    const lastDay  = new Date(year, month + 1, 0);
+    const startDay = (firstDay.getDay() + 6) % 7; // Пн=0
     const totalDays = lastDay.getDate();
     const prevMonthLast = new Date(year, month, 0).getDate();
 
-    // === Шапка ===
+    // шапка
     let html = `
       <div class="calendar-header d-flex justify-content-between align-items-center mb-2">
         <div class="calendar-nav d-flex gap-1">
           <button class="btn btn-link double-prev" title="Предыдущий год"></button>
           <button class="btn btn-link prev" title="Предыдущий месяц"></button>
         </div>
-        <div class="calendar-title fw-semibold text-center">
-          ${monthNames[month]} <span>${year}</span>
-        </div>
+        <div class="calendar-title fw-semibold text-center">${monthNames[month]} <span>${year}</span></div>
         <div class="calendar-nav d-flex gap-1">
           <button class="btn btn-link next" title="Следующий месяц"></button>
           <button class="btn btn-link double-next" title="Следующий год"></button>
@@ -246,68 +364,107 @@ $(function () {
       </div>
     `;
 
-    // === Таблица ===
     html += `<div class="calendar-body"><table class="calendar-table w-100 text-center"><thead><tr>`;
     weekDays.forEach(d => html += `<th>${d}</th>`);
-    html += `</tr></thead><tbody><tr>`;
+    html += `</tr></thead><tbody>`;
 
-    // Дни из предыдущего месяца
+    // предыдущий месяц (хвост)
+    let cells = 0;
     for (let i = 0; i < startDay; i++) {
       const day = prevMonthLast - startDay + i + 1;
-      html += `<td class="day other-month" data-day="${day}" data-month="${month - 1}" data-year="${year}">
-        <span>${day}</span>
-      </td>`;
+      const keyDate = new Date(year, month - 1, day);
+      const key = fmt(keyDate.getFullYear(), keyDate.getMonth(), keyDate.getDate());
+      const cls = buildClassForDate(key, true, h1arr, h2arr);
+      if(cells % 7 === 0) html += `<tr>`;
+      html += `<td class="${cls}" data-day="${day}" data-month="${month-1}" data-year="${year}"><span>${day}</span></td>`;
+      cells++;
     }
 
-    // Основные дни
+    // текущий месяц
     for (let d = 1; d <= totalDays; d++) {
-      if ((startDay + d - 1) % 7 === 0 && d !== 1) html += `</tr><tr>`;
-      const isToday = (today.getFullYear() === year && today.getMonth() === month && today.getDate() === d);
-      const todayClass = isToday ? 'today' : '';
-      html += `<td class="day ${todayClass}" data-day="${d}" data-month="${month}" data-year="${year}">
-        <span>${d}</span>
-      </td>`;
+      if (cells % 7 === 0) html += `<tr>`;
+      const key = fmt(year, month, d);
+      const cls = buildClassForDate(key, false, h1arr, h2arr, today, year, month, d);
+      html += `<td class="${cls}" data-day="${d}" data-month="${month}" data-year="${year}"><span>${d}</span></td>`;
+      cells++;
     }
 
-    // Дни из следующего месяца
-    const remaining = 7 - ((startDay + totalDays) % 7);
-    if (remaining < 7) {
-      for (let i = 1; i <= remaining; i++) {
-        html += `<td class="day other-month" data-day="${i}" data-month="${month + 1}" data-year="${year}">
-          <span>${i}</span>
-        </td>`;
+    // хвост следующего месяца — сначала заполнить остаток строки
+    let nextDay = 1;
+    if (cells % 7 !== 0) {
+      const need = 7 - (cells % 7);
+      for (let i = 0; i < need; i++) {
+        const keyDate = new Date(year, month + 1, nextDay);
+        const key = fmt(keyDate.getFullYear(), keyDate.getMonth(), keyDate.getDate());
+        const cls = buildClassForDate(key, true, h1arr, h2arr);
+        html += `<td class="${cls}" data-day="${nextDay}" data-month="${month+1}" data-year="${year}"><span>${nextDay}</span></td>`;
+        nextDay++; cells++;
       }
+      html += `</tr>`;
+    } else {
+      html += `</tr>`;
     }
 
-    html += `</tr></tbody></table></div>`;
+    // добавить строки, чтобы было ровно 6 строк (6*7=42 ячейки)
+    while (cells < 42) {
+      html += `<tr>`;
+      for (let i = 0; i < 7; i++) {
+        const keyDate = new Date(year, month + 1, nextDay);
+        const key = fmt(keyDate.getFullYear(), keyDate.getMonth(), keyDate.getDate());
+        const cls = buildClassForDate(key, true, h1arr, h2arr);
+        html += `<td class="${cls}" data-day="${nextDay}" data-month="${month+1}" data-year="${year}"><span>${nextDay}</span></td>`;
+        nextDay++; cells++;
+      }
+      html += `</tr>`;
+    }
+
+    html += `</tbody></table></div>`;
     $el.html(html);
 
-    // === Навигация ===
+    // навигация
     $el.find('.prev').on('click', () => createCalendar($el, new Date(year, month - 1, 1)));
     $el.find('.next').on('click', () => createCalendar($el, new Date(year, month + 1, 1)));
     $el.find('.double-prev').on('click', () => createCalendar($el, new Date(year - 1, month, 1)));
     $el.find('.double-next').on('click', () => createCalendar($el, new Date(year + 1, month, 1)));
 
-    // === Выделение дат ===
+    // клик по дням — мультивыбор; клик по other-month переключает месяц
     $el.find('.day').on('click', function () {
       const $day = $(this);
       if ($day.hasClass('other-month')) {
-        const y = $day.data('year');
-        const m = $day.data('month');
+        const y = parseInt($day.attr('data-year'),10);
+        const m = parseInt($day.attr('data-month'),10);
         createCalendar($el, new Date(y, m, 1));
-      } else {
-        $day.toggleClass('selected');
+        return;
       }
+      $day.toggleClass('selected');
     });
+
+    // вспомогательные функции
+    function buildClassForDate(key, isOther, arr1, arr2, todayRef, yRef, mRef, dRef) {
+      // base
+      let cls = "day";
+      if (isOther) cls += " other-month";
+
+      // today detection (if provided with yRef/mRef/dRef or by parsing key)
+      if (todayRef) {
+        const isToday = (todayRef.getFullYear() === yRef && todayRef.getMonth() === mRef && todayRef.getDate() === dRef);
+        if (isToday) cls += " today";
+      }
+
+      // highlights
+      if (arr1.includes(key)) cls += " highlight-1";
+      if (arr2.includes(key)) cls += " highlight-2";
+
+      return cls;
+    }
   }
 
-  // ==== Инициализация всех календарей ====
+  // инициализация всех контейнеров
   $('.calendar-instance').each(function () {
-    const $this = $(this);
-    createCalendar($this, new Date());
+    createCalendar($(this), new Date());
   });
 
-  // ==== При переключении табов (Bootstrap) ====
+  // при показе табов (если используются табы)
   $(document).on('shown.bs.tab', function () {
     $('.calendar-instance').each(function () {
       const $this = $(this);
@@ -318,4 +475,3 @@ $(function () {
     });
   });
 });
-

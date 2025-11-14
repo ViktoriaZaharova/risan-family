@@ -40790,6 +40790,16 @@ a.color-gray:hover {
   color: #333;
 }
 
+.calendar-table td.highlight-2 span {
+  background: #1B263C;
+  color: #fff;
+}
+
+.calendar-table td.highlight-1 span {
+  background: #F24C36;
+  color: #fff;
+}
+
 .calendar-table td:empty {
   cursor: default;
 }
