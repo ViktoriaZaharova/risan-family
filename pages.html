@@ -26,7 +26,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&amp;display=swap" rel="stylesheet"> -->
 
 	<link href="css/app.css" rel="stylesheet">
-
+	<link href="css/fancybox.css" rel="stylesheet">
 	<!-- BEGIN SETTINGS -->
 	<!-- Remove this after purchasing -->
 	<!-- <script src="js/settings.js"></script> -->
@@ -952,13 +952,16 @@
 					</div>
 					<div class="modal-body text-center">
 						<label class="w-100 mb-3">
-							<input type="text" name="password_old" placeholder="Введите старый пароль" class="form-control" required>
+							<input type="text" name="password_old" placeholder="Введите старый пароль"
+								class="form-control" required>
 						</label>
 						<label class="w-100 mb-3">
-							<input type="text" name="password_old_double" placeholder="Введите новый пароль" class="form-control" required>
+							<input type="text" name="password_old_double" placeholder="Введите новый пароль"
+								class="form-control" required>
 						</label>
 						<label class="w-100">
-							<input type="text" name="password_new" placeholder="Введите новый пароль еще раз" class="form-control" required>
+							<input type="text" name="password_new" placeholder="Введите новый пароль еще раз"
+								class="form-control" required>
 						</label>
 					</div>
 					<div class="modal-footer">
@@ -1025,6 +1028,115 @@
 				</div>
 				<div class="modal-body text-center">
 					<div class="lion-image-modal"><img src="img/lion.png" alt=""></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#deputyModal">
+		Выбор заместителя
+	</button>
+
+	<div class="modal fade" id="deputyModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Выбор заместителя</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h3 class="mb-3">
+						Выберите сотрудника, кого бы вы <br>хотели сделать своим заместителем
+					</h3>
+
+					<div class="thanks-search">
+						<form method="post" class="form-search">
+							<div class="input-group input-group-navbar">
+								<input type="text" class="form-control" placeholder="Начните вводить текст">
+								<button class="btn" type="button">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round" data-lucide="search"
+										class="lucide lucide-search align-middle">
+										<circle cx="11" cy="11" r="8"></circle>
+										<path d="m21 21-4.3-4.3"></path>
+									</svg>
+								</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="thanks-users">
+						<h5 class="mb-2">Все сотрудники</h5>
+						<ul class="mb-2 thanks-user-list my-ul">
+							<li><a href="#" class="thanks-user">Антиов Сергей Петрович</a></li>
+							<li><a href="#" class="thanks-user">Викторов Сергей Петрович</a></li>
+							<li><a href="#" class="thanks-user">Брыгин Сергей Петрович</a></li>
+							<li><a href="#" class="thanks-user">Соловьёв Сергей Петрович</a></li>
+						</ul>
+
+						<h5 class="mb-2">Другие сотрудники</h5>
+
+						<ul class="mb-0 thanks-user-list my-ul">
+							<li><a href="#" class="thanks-user">Соловьев Сергей Петрович</a></li>
+							<li><a href="#" class="thanks-user">Викторов Сергей Петрович</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#settingsModal">
+		Настройки оповещения
+	</button>
+
+	<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Настройки оповещения</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body settings-notification">
+					<div class="row">
+						<div class="col-12 col-sm-6 mb-3">
+							<div class="settings-notification__content">
+								<div class="settings-notification__icon"><img src="img/tg.svg" alt=""></div>
+								<h3>Уведомления в Telegram</h3>
+								<div class="box-text">
+									<p>Чтобы начать получать уведомления -
+										добавьте бота в личный чат или группу в Telegram. Больше не нужно проверять
+										почту!
+										Вы можете подключить до трех устройств одновременно.</p>
+								</div>
+
+								<div class="form-check form-switch form-switch-sm">
+									<input class="form-check-input" type="checkbox" checked="">
+									<label class="form-check-label">Получать уведомления</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-sm-6">
+							<div class="settings-notification__scan text-center">
+								<p>Отсканируй QR-код <br>
+									или кликни на него</p>
+
+									<div class="settings-notification__qr"><img src="img/qr.svg" alt=""></div>
+									<div class="btn-group flex-column w-100">
+										<a href="#" class="btn btn-lg btn-my btn-border btn-border-black w-100 mb-3">Добавить в личный чат</a>
+										<a href="#" class="btn btn-lg btn-my btn-border btn-border-black w-100">Добавить в группу</a>
+									</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>

@@ -40505,12 +40505,6 @@ a.color-gray:hover {
 }
 
 /* === Календарь === */
-/* .dashboard__calendar {
-  
-} */
-
-
-/* Внутри Tempus Dominus */
 .dashboard__calendar .tempus-dominus-widget {
   width: 100%;
   max-width: 100%;
@@ -40926,6 +40920,50 @@ a.color-gray:hover {
 
 .alert-hello-wrapper h3 {
   color: #fff;
+}
+
+.settings-notification__scan {
+  width: 100%;
+  background: #F5F5FB;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.settings-notification__scan p {
+  line-height: 21px;
+  font-size: 0.825rem;
+}
+
+.settings-notification__qr {
+  margin: 16px auto;
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px 0px #0000001A;
+}
+
+.settings-notification__content {
+  width: 100%;
+
+}
+
+.settings-notification__icon {
+  margin: 0 0 16px;
+  width: 46px;
+}
+
+.settings-notification__content .box-text {
+  line-height: 21px;
+  color: #9B9B9B;
+}
+
+.settings-notification__content .form-check {
+  color: #9B9B9B;
 }
 
 @media screen and (max-width: 1200px) {
