@@ -251,370 +251,524 @@
 									<!-- Переключатели отображения -->
 									<div class="d-flex flex-wrap align-items-center gap-3 mb-3 display-emploees">
 										<span class="me-2 text-muted">Отображение</span>
-										<div class="btn-group" role="group" aria-label="Отображение">
-											<button type="button" class="btn btn-primary active">Иерархия</button>
-											<button type="button" class="btn btn-outline-secondary">По алфавиту</button>
-										</div>
+										<ul class="nav nav-pills justify-content-between mb-0 dashboard__tabs"
+											role="tablist">
+											<li class="nav-item flex-fill text-center">
+												<button class="nav-link active w-100 nav-link__all"
+													data-bs-toggle="pill" data-bs-target=".tab-all" type="button"
+													role="tab">
+													Иерархия
+												</button>
+											</li>
+											<li class="nav-item flex-fill text-center">
+												<button class="nav-link w-100 nav-link__birthday" data-bs-toggle="pill"
+													data-bs-target=".tab-birthday" type="button" role="tab">
+													По алфавиту
+												</button>
+											</li>
+										</ul>
+
 									</div>
 
 									<hr>
 								</div>
 
 								<div class="card-body">
-									<!-- Легенда статусов -->
-									<div
-										class="d-flex flex-wrap align-items-center gap-4 small text-muted mb-4 status-emploees">
-										<div class="status-emploees-box"><span class="status-dot bg-dark me-2"></span>На
-											работе</div>
-										<div class="status-emploees-box"><span
-												class="status-dot bg-danger me-2"></span>В отпуске</div>
-										<div class="status-emploees-box"><span class="status-dot bg-gray me-2"></span>На
-											больничном</div>
-									</div>
 
-									<div class="w-100 content-employees-card__body">
-										<div class="content-employees-card__scroll">
-											<!-- ==== Иерархия: верхний директор ==== -->
-											<div class="row justify-content-center">
-												<div class="col-12 col-md-8 col-lg-6 d-flex justify-content-center">
-													<div class="card emp-card emp-card--top emp-card--center small">
-														<div class="emp-card__media">
-															<img src="img/avatars/avatar-2.jpg" alt="Лисов Сергей"
-																class="emp-avatar">
-														</div>
-														<div class="emp-card__body">
-															<div
-																class="d-flex align-items-start justify-content-between">
-																<div>
-																	<div class="emp-status emp-status--work">На работе
-																	</div>
-																	<div class="emp-role text-muted">Генеральный
-																		директор
-																	</div>
-																	<h5 class="emp-name">Лисов Сергей Юрьевич</h5>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
+									<div class="tab-content">
+										<div class="tab-pane fade show active tab-all">
+											<!-- Легенда статусов -->
+
+											<div
+												class="d-flex flex-wrap align-items-center gap-4 small text-muted mb-4 status-emploees">
+												<div class="status-emploees-box"><span
+														class="status-dot bg-dark me-2"></span>На
+													работе</div>
+												<div class="status-emploees-box"><span
+														class="status-dot bg-danger me-2"></span>В отпуске</div>
+												<div class="status-emploees-box"><span
+														class="status-dot bg-gray me-2"></span>На
+													больничном</div>
 											</div>
 
-											<!-- ==== Второй уровень: руководители (рядом) ==== -->
-											<div class="row justify-content-center gx-4 gy-4 mb-4">
-												<div class="col-6 col-lg-6 d-flex justify-content-center">
-													<div
-														class="card emp-card emp-card--top emp-card--center emp-card--left small">
-														<div class="emp-card__media">
-															<img src="img/avatars/avatar-3.jpg" alt="Фокина"
-																class="emp-avatar">
-														</div>
-														<div class="emp-card__body">
+											<div class="w-100 content-employees-card__body">
+												<div class="content-employees-card__scroll">
+													<!-- ==== Иерархия: верхний директор ==== -->
+													<div class="row justify-content-center">
+														<div
+															class="col-12 col-md-8 col-lg-6 d-flex justify-content-center">
 															<div
-																class="d-flex align-items-start justify-content-between">
-																<div>
-																	<div class="emp-status emp-status--work">На работе
+																class="card emp-card emp-card--top emp-card--center small">
+																<div class="emp-card__media">
+																	<img src="img/avatars/avatar-2.jpg"
+																		alt="Лисов Сергей" class="emp-avatar">
+																</div>
+																<div class="emp-card__body">
+																	<div
+																		class="d-flex align-items-start justify-content-between">
+																		<div>
+																			<div class="emp-status emp-status--work">На
+																				работе
+																			</div>
+																			<div class="emp-role text-muted">Генеральный
+																				директор
+																			</div>
+																			<h5 class="emp-name">Лисов Сергей Юрьевич
+																			</h5>
+																		</div>
 																	</div>
-																	<div class="emp-role text-muted">Директор по
-																		персоналу
-																	</div>
-																	<h6 class="emp-name">Фокина Ангелина Александровна
-																	</h6>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
 
-												<div class="col-6 col-lg-6 d-flex justify-content-center">
-													<div
-														class="card emp-card emp-card--top emp-card--center emp-card--right small">
-														<div class="emp-card__media">
-															<img src="img/avatars/avatar.jpg" alt="Иванов"
-																class="emp-avatar">
-														</div>
-														<div class="emp-card__body">
+													<!-- ==== Второй уровень: руководители (рядом) ==== -->
+													<div class="row justify-content-center gx-4 gy-4 mb-4">
+														<div class="col-6 col-lg-6 d-flex justify-content-center">
 															<div
-																class="d-flex align-items-start justify-content-between">
-																<div>
-																	<div class="emp-status emp-status--work">На работе
+																class="card emp-card emp-card--top emp-card--center emp-card--left small">
+																<div class="emp-card__media">
+																	<img src="img/avatars/avatar-3.jpg" alt="Фокина"
+																		class="emp-avatar">
+																</div>
+																<div class="emp-card__body">
+																	<div
+																		class="d-flex align-items-start justify-content-between">
+																		<div>
+																			<div class="emp-status emp-status--work">На
+																				работе
+																			</div>
+																			<div class="emp-role text-muted">Директор по
+																				персоналу
+																			</div>
+																			<h6 class="emp-name">Фокина Ангелина
+																				Александровна
+																			</h6>
+																		</div>
 																	</div>
-																	<div class="emp-role text-muted">Заместитель
-																		генерального
-																		директора по строительству</div>
-																	<h6 class="emp-name">Иванов Иван Иванович</h6>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-6 col-lg-6 d-flex justify-content-center">
+															<div
+																class="card emp-card emp-card--top emp-card--center emp-card--right small">
+																<div class="emp-card__media">
+																	<img src="img/avatars/avatar.jpg" alt="Иванов"
+																		class="emp-avatar">
+																</div>
+																<div class="emp-card__body">
+																	<div
+																		class="d-flex align-items-start justify-content-between">
+																		<div>
+																			<div class="emp-status emp-status--work">На
+																				работе
+																			</div>
+																			<div class="emp-role text-muted">Заместитель
+																				генерального
+																				директора по строительству</div>
+																			<h6 class="emp-name">Иванов Иван Иванович
+																			</h6>
+																		</div>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-											</div>
 
-											<!-- ==== Блок отделов: большие контейнеры с заголовком и списком карточек внутри ==== -->
-											<div class="row gx-4 gy-4 align-items-start">
-												<div class="col-3 col-lg-3">
-													<div class="card dept-card">
+													<!-- ==== Блок отделов: большие контейнеры с заголовком и списком карточек внутри ==== -->
+													<div class="row gx-4 gy-4 align-items-start">
+														<div class="col-3 col-lg-3">
+															<div class="card dept-card">
 
-														<h4>Отдел кадров</h4>
+																<h4>Отдел кадров</h4>
 
-														<div class="dept-card__list">
-															<!-- вложенная карточка сотрудника (маленькая) -->
-															<div class="dept-card__head">
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-7.jpg" alt="Фокина"
-																			class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
+																<div class="dept-card__list">
+																	<!-- вложенная карточка сотрудника (маленькая) -->
+																	<div class="dept-card__head">
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-7.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
 																				<div
-																					class="emp-status emp-status--work">
-																					На
-																					работе</div>
-																				<div class="emp-role text-muted">
-																					Руководитель
-																					отдела</div>
-																				<h6 class="emp-name">Серегина Инна
-																					Петровна
-																				</h6>
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--work">
+																							На
+																							работе</div>
+																						<div
+																							class="emp-role text-muted">
+																							Руководитель
+																							отдела</div>
+																						<h6 class="emp-name">Серегина
+																							Инна
+																							Петровна
+																						</h6>
+																					</div>
+																				</div>
 																			</div>
 																		</div>
 																	</div>
+																	<div class="dept-card__body w-100">
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-8.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
+																				<div
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--vacation">
+																							В
+																							отпуске</div>
+																						<div
+																							class="emp-role text-muted">
+																							Старший
+																							инспектор
+																							по кадрам</div>
+																						<h6 class="emp-name">Минина Инна
+																							Сергеевна
+																						</h6>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-9.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
+																				<div
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--work">
+																							На
+																							работе</div>
+																						<div
+																							class="emp-role text-muted">
+																							Старший
+																							инспектор
+																							по кадрам</div>
+																						<h6 class="emp-name">Минина Инна
+																							Сергеевна
+																						</h6>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-10.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
+																				<div
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--work">
+																							На
+																							работе</div>
+																						<div
+																							class="emp-role text-muted">
+																							Старший
+																							инспектор
+																							по кадрам</div>
+																						<h6 class="emp-name">Минина Инна
+																							Сергеевна
+																						</h6>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-11.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
+																				<div
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--sick">
+																							На
+																							больничном</div>
+																						<div
+																							class="emp-role text-muted">
+																							Старший
+																							инспектор
+																							по кадрам</div>
+																						<h6 class="emp-name">Минина Инна
+																							Сергеевна
+																						</h6>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-8.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
+																				<div
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--vacation">
+																							В
+																							отпуске</div>
+																						<div
+																							class="emp-role text-muted">
+																							Старший
+																							инспектор
+																							по кадрам</div>
+																						<h6 class="emp-name">Минина Инна
+																							Сергеевна
+																						</h6>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+
+																	<!-- кнопка показать ещё -->
+																	<button
+																		class="btn btn-lg btn-my btn-border btn-border-black w-100 btn-outline-secondary">Показать
+																		ещё</button>
 																</div>
 															</div>
-															<div class="dept-card__body w-100">
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-8.jpg" alt="Фокина"
-																			class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
-																				<div
-																					class="emp-status emp-status--vacation">
-																					В
-																					отпуске</div>
-																				<div class="emp-role text-muted">Старший
-																					инспектор
-																					по кадрам</div>
-																				<h6 class="emp-name">Минина Инна
-																					Сергеевна
-																				</h6>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-9.jpg" alt="Фокина"
-																			class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
-																				<div
-																					class="emp-status emp-status--work">
-																					На
-																					работе</div>
-																				<div class="emp-role text-muted">Старший
-																					инспектор
-																					по кадрам</div>
-																				<h6 class="emp-name">Минина Инна
-																					Сергеевна
-																				</h6>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-10.jpg"
-																			alt="Фокина" class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
-																				<div
-																					class="emp-status emp-status--work">
-																					На
-																					работе</div>
-																				<div class="emp-role text-muted">Старший
-																					инспектор
-																					по кадрам</div>
-																				<h6 class="emp-name">Минина Инна
-																					Сергеевна
-																				</h6>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-11.jpg"
-																			alt="Фокина" class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
-																				<div
-																					class="emp-status emp-status--sick">
-																					На
-																					больничном</div>
-																				<div class="emp-role text-muted">Старший
-																					инспектор
-																					по кадрам</div>
-																				<h6 class="emp-name">Минина Инна
-																					Сергеевна
-																				</h6>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-8.jpg" alt="Фокина"
-																			class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
-																				<div
-																					class="emp-status emp-status--vacation">
-																					В
-																					отпуске</div>
-																				<div class="emp-role text-muted">Старший
-																					инспектор
-																					по кадрам</div>
-																				<h6 class="emp-name">Минина Инна
-																					Сергеевна
-																				</h6>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<!-- кнопка показать ещё -->
-															<button
-																class="btn btn-lg btn-my btn-border btn-border-black w-100 btn-outline-secondary">Показать
-																ещё</button>
 														</div>
-													</div>
-												</div>
 
-												<div class="col-3 col-lg-3">
-													<div class="card dept-card">
-														<h4>Охрана труда</h4>
+														<div class="col-3 col-lg-3">
+															<div class="card dept-card">
+																<h4>Охрана труда</h4>
 
-														<div class="dept-card__list">
-															<!-- вложенная карточка сотрудника (маленькая) -->
-															<div class="dept-card__head">
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-12.jpg"
-																			alt="Фокина" class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
+																<div class="dept-card__list">
+																	<!-- вложенная карточка сотрудника (маленькая) -->
+																	<div class="dept-card__head">
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-12.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
 																				<div
-																					class="emp-status emp-status--work">
-																					На
-																					работе</div>
-																				<div class="emp-role text-muted">
-																					Руководитель
-																					отдела</div>
-																				<h6 class="emp-name">Серегина Инна
-																					Петровна
-																				</h6>
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--work">
+																							На
+																							работе</div>
+																						<div
+																							class="emp-role text-muted">
+																							Руководитель
+																							отдела</div>
+																						<h6 class="emp-name">Серегина
+																							Инна
+																							Петровна
+																						</h6>
+																					</div>
+																				</div>
 																			</div>
 																		</div>
 																	</div>
-																</div>
-															</div>
-															<div class="dept-card__body w-100">
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-13.jpg"
-																			alt="Фокина" class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
+																	<div class="dept-card__body w-100">
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-13.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
 																				<div
-																					class="emp-status emp-status--sick">
-																					На
-																					больничном</div>
-																				<div class="emp-role text-muted">Старший
-																					инспектор
-																					по кадрам</div>
-																				<h6 class="emp-name">Минина Инна
-																					Сергеевна
-																				</h6>
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--sick">
+																							На
+																							больничном</div>
+																						<div
+																							class="emp-role text-muted">
+																							Старший
+																							инспектор
+																							по кадрам</div>
+																						<h6 class="emp-name">Минина Инна
+																							Сергеевна
+																						</h6>
+																					</div>
+																				</div>
 																			</div>
 																		</div>
 																	</div>
+																	<!-- кнопка показать ещё -->
+																	<button
+																		class="btn btn-lg btn-my btn-border btn-border-black w-100 btn-outline-secondary">Показать
+																		ещё</button>
 																</div>
 															</div>
-															<!-- кнопка показать ещё -->
-															<button
-																class="btn btn-lg btn-my btn-border btn-border-black w-100 btn-outline-secondary">Показать
-																ещё</button>
 														</div>
-													</div>
-												</div>
 
-												<div class="col-6 col-lg-6">
-													<div class="card dept-card">
-														<h4>Отдел тендеров и снабжения</h4>
+														<div class="col-6 col-lg-6">
+															<div class="card dept-card">
+																<h4>Отдел тендеров и снабжения</h4>
 
-														<div class="dept-card__list">
-															<!-- вложенная карточка сотрудника (маленькая) -->
-															<div class="dept-card__head">
-																<div class="card emp-card emp-mini small">
-																	<div class="emp-card__media">
-																		<img src="img/avatars/avatar-14.jpg"
-																			alt="Фокина" class="emp-avatar">
-																	</div>
-																	<div class="emp-card__body">
-																		<div
-																			class="d-flex align-items-start justify-content-between">
-																			<div>
+																<div class="dept-card__list">
+																	<!-- вложенная карточка сотрудника (маленькая) -->
+																	<div class="dept-card__head">
+																		<div class="card emp-card emp-mini small">
+																			<div class="emp-card__media">
+																				<img src="img/avatars/avatar-14.jpg"
+																					alt="Фокина" class="emp-avatar">
+																			</div>
+																			<div class="emp-card__body">
 																				<div
-																					class="emp-status emp-status--work">
-																					На
-																					работе</div>
-																				<div class="emp-role text-muted">
-																					Руководитель
-																					отдела</div>
-																				<h6 class="emp-name">Минина Инна
-																					Петровна
-																				</h6>
+																					class="d-flex align-items-start justify-content-between">
+																					<div>
+																						<div
+																							class="emp-status emp-status--work">
+																							На
+																							работе</div>
+																						<div
+																							class="emp-role text-muted">
+																							Руководитель
+																							отдела</div>
+																						<h6 class="emp-name">Минина Инна
+																							Петровна
+																						</h6>
+																					</div>
+																				</div>
 																			</div>
 																		</div>
 																	</div>
+
 																</div>
 															</div>
-
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
+
+										<div class="tab-pane fade tab-birthday">
+											<div class="row">
+												<div class="col-12 col-md-6 mb-3">
+													<div class="thanks-search">
+														<form method="post" class="form-search">
+															<div class="input-group input-group-navbar">
+																<input type="text" class="form-control"
+																	placeholder="Начните вводить ФИО сотрудника">
+																<button class="btn" type="button">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
+																		height="24" viewBox="0 0 24 24" fill="none"
+																		stroke="currentColor" stroke-width="2"
+																		stroke-linecap="round" stroke-linejoin="round"
+																		data-lucide="search"
+																		class="lucide lucide-search align-middle">
+																		<circle cx="11" cy="11" r="8"></circle>
+																		<path d="m21 21-4.3-4.3"></path>
+																	</svg>
+																</button>
+															</div>
+														</form>
+													</div>
+												</div>
+
+												<div class="col-12">
+
+												</div>
+											</div>
+
+											<div class="table-responsive">
+												<table class="table w-100">
+													<thead>
+														<tr>
+															<th class="align-middle w-25px"></th>
+															<th class="align-middle w-50px"></th>
+															<th class="align-middle">ФИО</th>
+															<th class="align-middle">Отдел</th>
+															<th class="align-middle">Должность</th>
+															<th class="align-middle">Статус</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>
+																1
+															</td>
+															<td><img src="img/avatars/avatar-5.jpg"
+																	class="rounded-circle me-1" alt="" width="32"
+																	height="32"></td>
+															<td>
+																Антипова Вера Игоревна
+															</td>
+															<td>Маркетинг</td>
+															<td>Маркетолог</td>
+															<td data-bs-toggle="tooltip" data-bs-placement="left"
+																title="Чтобы увиделть заместителей, перейдите в профиль сотрудника">
+																В отпуске <sup>?</sup></td>
+														</tr>
+														<tr>
+															<td>
+																2
+															</td>
+															<td><img src="img/avatars/avatar-2.jpg"
+																	class="rounded-circle" alt="" width="32"
+																	height="32"></td>
+															<td>
+																Бегова Инна Викторовна
+															</td>
+															<td>Маркетинг</td>
+															<td>Маркетолог</td>
+															<td>На работе</td>
+														</tr>
+														<tr>
+															<td>
+																3
+															</td>
+															<td><img src="img/avatars/avatar-3.jpg"
+																	class="rounded-circle" alt="" width="32"
+																	height="32"></td>
+															<td>
+																Верницкая Ольга Анатольевна
+															</td>
+															<td>Дизайн</td>
+															<td>Дизайнер</td>
+															<td data-bs-toggle="tooltip" data-bs-placement="left"
+																title="Чтобы увиделть заместителей, перейдите в профиль сотрудника">
+																Больничный <sup>?</sup></td>
+														</tr>
+														<tr>
+															<td>
+																4
+															</td>
+															<td><img src="img/avatars/avatar.jpg" class="rounded-circle"
+																	alt="" width="32" height="32"></td>
+															<td>
+																Иванова Вера Игоревна
+															</td>
+															<td>Отдел продаж</td>
+															<td>Менеджер</td>
+															<td>На работе</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+										</div>
 									</div>
+
 								</div>
 
 							</div>
