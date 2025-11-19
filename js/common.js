@@ -141,7 +141,8 @@ $(function () {
     $items.slice(0, perLoad).show();
 
     // === 3. Логика кнопки «Показать ещё» ===
-    $('.btn-loader-thanks-badge').on('click', function () {
+    $('.btn-loader-thanks-badge').on('click', function (e) {
+      e.preventDefault();
 
         const hiddenItems = $items.filter(':hidden');
 

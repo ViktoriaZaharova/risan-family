@@ -40427,9 +40427,29 @@ display: none;
 
 .thanks-colleagues-row {
   overflow-y: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: #cfcfcf transparent;
   max-height: 407px;
   position: relative;
   z-index: 1;
+  padding: 0 18px 0 0; 
+}
+
+.thanks-colleagues-row::-webkit-scrollbar {
+  width: 6px; /* тонкая полоса */
+}
+
+.thanks-colleagues-row::-webkit-scrollbar-track {
+  background: transparent; /* фон незаметный */
+}
+
+.thanks-colleagues-row::-webkit-scrollbar-thumb {
+  background: #F0F0F0; /* цвет как в макете */
+  border-radius: 10px; /* сильно скруглённый */
+}
+
+.thanks-colleagues-row::-webkit-scrollbar-thumb:hover {
+  background: #b9b9b9; /* лёгкое затемнение при наведении */
 }
 
 .thanks-colleagues-wrapper {
@@ -40980,6 +41000,31 @@ display: none;
   color: #9B9B9B;
 }
 
+.calendar-dates-card__img {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.calendar-dates-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.calendar-dates-card__body {
+  width: 100%;
+  padding: 16px 0 0;
+}
+
+.calendar-dates-card__date {
+  margin: 0 0 10px;
+}
+
 @media screen and (max-width: 1200px) {
   .shop-card__body {
     padding: 16px;
@@ -41138,5 +41183,8 @@ display: none;
   .alert-hello-wrapper__content {
     width: 100%;
     padding: 16px 0 0;
+  }
+  .calendar-dates-card__img {
+    height: auto;
   }
 }
